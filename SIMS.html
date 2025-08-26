@@ -96,7 +96,7 @@
       </div>
 
         <!-- THE FUNCTION NAME MUST DELCARE INSIDE, for example : onClick=(myFunctions)-->
-      <button onClick="">ADD STUDENT</button> 
+      <button onClick="addStudent">ADD STUDENT</button> 
       <button onClick="">REMOVE STUDENT</button>
       <button onClick="">DISPLAY STUDENT</button>
       <button onClick="">STUDENT COUNT</button>
@@ -127,7 +127,18 @@
   </body>
 
   <script>
+      let students = [];
 
+    function addStudent() {
+      let name = document.getElementById("studentName").value.trim();
+      if (name === "") {
+        document.getElementById("output").innerText = "Please enter a student name.";
+        return;
+      }
+      students.push(name);
+      document.getElementById("output").innerText = name + " added successfully!";
+      document.getElementById("studentName").value = "";
+    }
 
   </script>
 </html>
